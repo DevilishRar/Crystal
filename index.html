@@ -3,6 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crystal - Roblox Executor</title>
+    <meta name="description" content="Inject undetected with 85% success rate and level 5 identity protection. Unleash the power of Crystal - #1 Executor.">
+    <meta property="og:title" content="Crystal - #1 Executor">
+    <meta property="og:description" content="Inject undetected with 85% success rate and level 5 identity protection. Unleash the Spark with Crystal.">
+    <meta property="og:image" content="https://cdn.discordapp.com/icons/1246149257950400573/b2953801fc677a467915647e538b568c.webp?size=96">
+    <meta property="og:url" content="URL_OF_YOUR_SITE">
+    <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://cdn.discordapp.com/icons/1246149257950400573/b2953801fc677a467915647e538b568c.webp?size=96">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -14,6 +20,63 @@
             color: white;
             overflow-x: hidden;
             position: relative;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .loader img {
+            width: 96px;
+            height: 96px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .loader .progress-bar {
+            width: 300px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .loader .progress {
+            height: 100%;
+            background: #ff0000;
+            width: 0;
+            border-radius: 15px;
+            transition: width 0.1s ease-in-out;
+        }
+
+        .loader .percentage {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
 
         .gradient-text {
@@ -118,51 +181,63 @@
 </head>
 <body>
 
-    <div id="stars-container"></div>
+    <div class="loader">
+        <img src="https://cdn.discordapp.com/icons/1246149257950400573/b2953801fc677a467915647e538b568c.webp?size=96" alt="Crystal Logo">
+        <div class="progress-bar">
+            <div class="progress"></div>
+            <div class="percentage">0%</div>
+        </div>
+    </div>
 
-    <nav class="p-4 rounded-b-lg bg-transparent z-10 relative">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://cdn.discordapp.com/icons/1246149257950400573/b2953801fc677a467915647e538b568c.webp?size=96" alt="Crystal Logo" class="w-12 h-12 mr-3 logo-img">
-                <div class="text-2xl font-bold" style="font-family: 'Oswald', sans-serif;">Crystal</div>
-            </div>
-            <ul class="flex space-x-4">
-                <li><a href="#" class="navbar-link" onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' });">Features</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="content" class="fade-in">
 
-    <header class="container mx-auto spacing flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left z-10 relative">
-        <div class="mb-10 md:mb-0">
-            <h1 class="text-5xl font-bold gradient-text mb-4" style="font-family: 'Poppins', sans-serif;">Crystal - Roblox Executor</h1>
-            <p class="text-2xl mb-8" style="font-family: 'Montserrat', sans-serif;">Inject undetected with 85% success rate and level 5 identity protection</p>
-            <a href="https://discord.gg/UWcyxQyQzY" class="custom-button">Download Now</a>
-        </div>
-        <div class="md:ml-10">
-            <img src="https://media.discordapp.net/attachments/1267030152861450260/1267056395975393290/image.png?ex=66a765b9&is=66a61439&hm=e5ecb4665adb5c94320611b1112e01113fed671dd26bb13d1f9139abe7385ed8&=&format=webp&quality=lossless" alt="Showcase image of Crystal software" class="showcase-img">
-        </div>
-    </header>
+        <div id="stars-container"></div>
 
-    <section id="features" class="container mx-auto spacing-features spacing-footer">
-        <h2 class="text-3xl font-bold text-center mb-10">Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div class="modal-card feature-card">
-                <i class="fas fa-shield-alt text-4xl mb-4 gradient-text"></i>
-                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">High Security</h3>
-                <p style="font-family: 'Montserrat', sans-serif;">Protect your account with level 5 identity protection and advanced encryption.</p>
+        <nav class="p-4 rounded-b-lg bg-transparent z-10 relative">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://cdn.discordapp.com/icons/1246149257950400573/b2953801fc677a467915647e538b568c.webp?size=96" alt="Crystal Logo" class="w-12 h-12 mr-3 logo-img">
+                    <div class="text-2xl font-bold" style="font-family: 'Oswald', sans-serif;">Crystal</div>
+                </div>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="navbar-link" onclick="document.getElementById('features').scrollIntoView({ behavior: 'smooth' });">Features</a></li>
+                </ul>
             </div>
-            <div class="modal-card feature-card">
-                <i class="fas fa-bolt text-4xl mb-4 gradient-text"></i>
-                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Fast Injection</h3>
-                <p style="font-family: 'Montserrat', sans-serif;">Quickly inject scripts with an 85% success rate without being detected.</p>
+        </nav>
+
+        <header class="container mx-auto spacing flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left z-10 relative">
+            <div class="mb-10 md:mb-0">
+                <h1 class="text-5xl font-bold gradient-text mb-4" style="font-family: 'Poppins', sans-serif;">Crystal - Roblox Executor</h1>
+                <p class="text-2xl mb-8" style="font-family: 'Montserrat', sans-serif;">Inject undetected with 85% success rate and level 5 identity protection</p>
+                <a href="https://discord.gg/UWcyxQyQzY" class="custom-button">Download Now</a>
             </div>
-            <div class="modal-card feature-card">
-                <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
-                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Regular Updates</h3>
-                <p style="font-family: 'Montserrat', sans-serif;">Stay up to date with the latest features and protections.</p>
+            <div class="md:ml-10">
+                <img src="https://media.discordapp.net/attachments/1267030152861450260/1267056395975393290/image.png?ex=66a765b9&is=66a61439&hm=e5ecb4665adb5c94320611b1112e01113fed671dd26bb13d1f9139abe7385ed8&=&format=webp&quality=lossless" alt="Showcase image of Crystal software" class="showcase-img">
             </div>
-        </div>
-    </section>
+        </header>
+
+        <section id="features" class="container mx-auto spacing-features spacing-footer">
+            <h2 class="text-3xl font-bold text-center mb-10">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="modal-card feature-card">
+                    <i class="fas fa-shield-alt text-4xl mb-4 gradient-text"></i>
+                    <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">High Security</h3>
+                    <p style="font-family: 'Montserrat', sans-serif;">Protect your account with level 5 identity protection and advanced encryption.</p>
+                </div>
+                <div class="modal-card feature-card">
+                    <i class="fas fa-bolt text-4xl mb-4 gradient-text"></i>
+                    <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Fast Injection</h3>
+                    <p style="font-family: 'Montserrat', sans-serif;">Quickly inject scripts with an 85% success rate without being detected.</p>
+                </div>
+                <div class="modal-card feature-card">
+                    <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+                    <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Regular Updates</h3>
+                    <p style="font-family: 'Montserrat', sans-serif;">Stay up to date with the latest features and protections.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -177,8 +252,28 @@
                 starsContainer.appendChild(star);
             }
 
-            document.body.style.overflow = 'hidden';
-            document.body.style.overflowY = 'scroll';
+            let loaderProgress = 0;
+            const loader = document.querySelector('.loader');
+            const progress = loader.querySelector('.progress');
+            const percentage = loader.querySelector('.percentage');
+
+            function updateLoader() {
+                loaderProgress += 1;
+                progress.style.width = loaderProgress + '%';
+                percentage.textContent = loaderProgress + '%';
+
+                if (loaderProgress < 100) {
+                    requestAnimationFrame(updateLoader);
+                } else {
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        document.getElementById('content').classList.add('visible');
+                        document.body.style.overflowY = 'scroll';
+                    }, 500);
+                }
+            }
+
+            requestAnimationFrame(updateLoader);
         });
     </script>
 
